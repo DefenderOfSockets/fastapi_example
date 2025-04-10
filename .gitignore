@@ -18,3 +18,5 @@ poetry.lock
 # Docker
 *.log
 *.pid
+
+*.bak
