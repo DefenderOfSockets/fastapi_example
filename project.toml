@@ -1,3 +1,33 @@
+[tool.poetry]
+name = "fastapi_example_project"
+version = "0.1.0"
+description = "Пример FastAPI-приложения"
+authors = ["Evgenii Lopukhov (lopukhov.evgeniy.o@gmail.com)"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "backend" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.0"
+uvicorn = { extras = ["standard"], version = "^0.29.0" }
+pydantic = "^2.6.0"
+
+[tool.poetry.dev-dependencies]
+black = "^24.2.0"
+isort = "^5.12.0"
+ruff = "^0.3.0"
+mypy = "^1.8.0"
+pytest = "^8.0.0"
+pydocstyle = "^6.3.0"
+bandit = "^1.7.6"
+httpx = "^0.27.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# --- Форматирование кода ---
 [tool.black]
 line-length = 88
 target-version = ["py312"]
@@ -22,6 +52,7 @@ ignore = ["D100", "D104", "D205", "D401"]
 [tool.ruff.format]
 docstring-code-format = true
 
+# --- Проверка типов ---
 [tool.mypy]
 python_version = "3.12"
 ignore_missing_imports = true
@@ -30,6 +61,12 @@ show_error_codes = true
 pretty = true
 exclude = ["venv", "tests"]
 
+# --- Проверка докстрингов ---
 [tool.pydocstyle]
 convention = "pep257"
 add-ignore = ["D100", "D104", "D205", "D401"]
+
+# --- Тесты ---
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = ["tests"]
