@@ -9,6 +9,7 @@ def print_hi(name):
     :return: None
     """
     print(f"Hi, {name}")
+    print("dfsf")
 
 
 if __name__ == "__main__":

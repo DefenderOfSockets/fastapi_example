@@ -1,8 +1,20 @@
-# created by virtualenv automatically
-.venv/
+# PyCharm
 .idea/
-.ruff_cache/
-.mypy_cache/
 
-*.bak
+# Python
+__pycache__/
+*.py[cod]
 *.isorted
+*.pyo
+
+# Virtualenv
+.venv/
+.env/
+.env.*
+
+# Poetry
+poetry.lock
+
+# Docker
+*.log
+*.pid
