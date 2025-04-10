@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+.venv/
+.idea/
+.ruff_cache/
+.mypy_cache/
+
+*.bak
+*.isorted

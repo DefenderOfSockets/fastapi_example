@@ -1,0 +1,35 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["app"]
+known_third_party = ["fastapi", "pydantic"]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+extend-select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["D100", "D104", "D205", "D401"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+strict = true
+show_error_codes = true
+pretty = true
+exclude = ["venv", "tests"]
+
+[tool.pydocstyle]
+convention = "pep257"
+add-ignore = ["D100", "D104", "D205", "D401"]
