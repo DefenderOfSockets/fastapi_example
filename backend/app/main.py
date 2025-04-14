@@ -1,18 +1,21 @@
 """Main entry point for the FastAPI application."""
 
+import uvicorn
+from fastapi import FastAPI
 
-def print_hi(name):
-    """
-    Docstring.
+from backend.app.api.api_v1.routers.auth import auth_router
+from backend.app.config import config
 
-    :param name: str
-    :return: None
-    """
-    print(f"Hi, {name}")
-    print("dfsf")
+app = FastAPI(title=config.PROJECT_NAME, docs_url="/api/docs", openapi_url="/api")
+
+# Routers
+app.include_router(
+    auth_router,
+    prefix="/api/v1",
+    tags=["users"],
+)
+app.include_router(auth_router, prefix="/api", tags=["auth"])
 
 
 if __name__ == "__main__":
-    """Init file for the FastAPI backend package."""
-
-    print_hi("PyCharm")
+    uvicorn.run("main:app", host="127.0.0.1", reload=True, port=8888)

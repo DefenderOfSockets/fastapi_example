@@ -29,16 +29,21 @@ build-backend = "poetry.core.masonry.api"
 
 # --- Форматирование кода ---
 [tool.black]
-line-length = 88
+line-length = 120
 target-version = ["py312"]
 skip-string-normalization = false
 
 [tool.isort]
 profile = "black"
-line_length = 88
+line_length = 120
+multi_line_output = 3
+lines_after_imports = 2
+lexicographical = true
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+no_lines_before = ["STDLIB", "THIRDPARTY"]
 known_first_party = ["app"]
 known_third_party = ["fastapi", "pydantic"]
-multi_line_output = 3
+known_local_folder = []
 include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
